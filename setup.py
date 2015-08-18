@@ -5,7 +5,7 @@ with open("README.rst") as readme_file:
 
 
 setup(name="RPyN",
-    version="0.0.1",
+    version="0.0.2",
     packages=["rpn",],
     license="GNU GPL v3.0",
     description="Evaluates a given Reverse Polish Notation",
