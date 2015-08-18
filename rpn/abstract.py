@@ -18,7 +18,7 @@ class AbstractEvaluator:
 				token(self.stack)
 			else:
 				self.stack.append(token)
-		return stack.pop()			
+		return self.stack.pop()			
 
 
 	def tokenize(self, expression):
