@@ -17,6 +17,7 @@ setup(name="RPyN",
     tests_require=[ 
         "coverage",
         "nose",
+        "pytest"
     ],
     long_description=long_description,
     test_suite="nose.collector",
