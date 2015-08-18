@@ -26,7 +26,7 @@ class AbstractEvaluator:
 		for token in expression.split():
 			if token in self.operators:
 				processed_tokens.append(self.operators[token])
-			elif is_number.match(token):
+			elif self.is_number.match(token):
 				processed_tokens.append(float(token))
 			else:
 				raise ValueError("{} is not a valid operator or number")
