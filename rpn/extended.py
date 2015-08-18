@@ -1,7 +1,7 @@
 from .abstract import AbstractEvaluator
 from .functions import add, subtract, multiply, divide, if_
 
-class NormalEvaluator(AbstractEvaluator):
+class ExtendedEvaluator(AbstractEvaluator):
     operators = {
         "-": subtract,
         "+": add,
