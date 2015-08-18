@@ -20,13 +20,13 @@ class AbstractEvaluator:
 				self.stack.append(token)
 		return stack.pop()
 
-    def tokenize(self, expression):
-        processed_tokens = []
-        for token in expression.split():
-            if token in self.operators:
-                processed_tokens.append(self.operators[token])
-            elif is_number.match(token):
-                processed_tokens.append(float(token))
-            else:
-                raise ValueError("{} is not a valid operator or number")
-        return processed_tokens
+	def tokenize(self, expression):
+		processed_tokens = []
+		for token in expression.split():
+			if token in self.operators:
+				processed_tokens.append(self.operators[token])
+			elif self.is_number.match(token):
+				processed_tokens.append(float(token))
+			else:
+				raise ValueError("{} is not a valid operator or number")
+		return processed_tokens
