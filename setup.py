@@ -14,10 +14,9 @@ setup(name="RPyN",
     install_requires=[
         
     ],
-    test_requires=[
-        "mock(>=1.0.1)", 
-        "coverage(>=3.7.1)",
-        "nose(>=1.3.4)",
+    tests_require=[ 
+        "coverage",
+        "nose",
     ],
     long_description=long_description,
     test_suite="nose.collector",
