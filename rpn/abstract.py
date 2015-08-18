@@ -5,11 +5,10 @@ from operator import add, sub, or_, mul, div
 
 import re
 
-class AbstractEvaluator(object):
+class AbstractEvaluator:
 	operators = {}
 	is_number = re.compile(r"[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?")
 	def __init__(self, *args, **kwargs):
-		super(AbstractEvaluator, self).__init__(*args, **kwargs)
 		self.stack = deque()
 	
 	def evaluate(self, expression):
