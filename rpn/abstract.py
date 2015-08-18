@@ -5,7 +5,7 @@ from operator import add, sub, or_, mul, div
 
 import re
 
-class AbstractEvaluator:
+class AbstractEvaluator(object):
 	operators = {}
 	is_number = re.compile(r"[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?")
 	def __init__(self, *args, **kwargs):
