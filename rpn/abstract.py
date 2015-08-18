@@ -14,7 +14,7 @@ class AbstractEvaluator:
 	def evaluate(self, expression):
 		tokens = self.tokenize(expression)
 		for token in tokens:
-			if type(token) == builtin_function_or_method:
+			if callable(token):
 				token(self.stack)
 			else:
 				self.stack.append(token)
