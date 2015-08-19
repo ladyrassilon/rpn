@@ -10,14 +10,17 @@ class AbstractEvaluator:
     def __init__(self, *args, **kwargs):
         self.stack = deque()
 
-    def evaluate(self, expression):
-        tokens = self.tokenize(expression)
+    def evaluate_tokens(self, tokens):
         for token in tokens:
             if callable(token):
                 token(self.stack)
             else:
                 self.stack.append(token)
         return self.stack.pop()
+
+    def evaluate(self, expression):
+        tokens = self.tokenize(expression)
+        self.evaluate_tokens(tokens)
 
     def tokenize(self, expression):
         processed_tokens = []
