@@ -11,17 +11,17 @@ class TestNormalEvaluator(unittest.TestCase):
     evaluator = NormalEvaluator()
 
     good_parameters = {
-        "good_1_item": Call("1", Decimail(1)),
-        "good_add": Call("1 2 +", Decimail(3)),
-        "good_subtract": Call("1 2 -", Decimail(-1)),
-        "good_divide": Call("1 2 /", Decimail(0.5)),
-        "good_multiply": Call("1 2 *", Decimail(2)),
-        "good_1": Call("28 65 / 100.00 *", Decimail(43.07692307692308)),
-        "good_2": Call("4 5 7 2 + - *", Decimail(-16)),
-        "good_3": Call("3 4 + 2  * 7 /", Decimail(2)),
-        "good_4": Call("5 7 + 6 2 -  *", Decimail(48)),
-        "good_5": Call("4 2 3 5 1 - + * +", Decimail(18)),
-        "good_6": Call("4 2 + 3 5 1 -  * +", Decimail(18)),
+        "good_1_item": Call("1", Decimal(1)),
+        "good_add": Call("1 2 +", Decimal(3)),
+        "good_subtract": Call("1 2 -", Decimal(-1)),
+        "good_divide": Call("1 2 /", Decimal(0.5)),
+        "good_multiply": Call("1 2 *", Decimal(2)),
+        "good_1": Call("28 65 / 100.00 *", Decimal(43.07692307692308)),
+        "good_2": Call("4 5 7 2 + - *", Decimal(-16)),
+        "good_3": Call("3 4 + 2  * 7 /", Decimal(2)),
+        "good_4": Call("5 7 + 6 2 -  *", Decimal(48)),
+        "good_5": Call("4 2 3 5 1 - + * +", Decimal(18)),
+        "good_6": Call("4 2 + 3 5 1 -  * +", Decimal(18)),
     }
 
     bad_parameters = {
