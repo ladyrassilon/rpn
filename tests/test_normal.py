@@ -1,10 +1,8 @@
 import unittest
 
 from rpn.normal import NormalEvaluator
-from slugify import UniqueSlugify
-
-
 from utils import TemplateTestCase, Call, template
+
 
 class TestNormalEvaluator(unittest.TestCase):
 
@@ -62,4 +60,5 @@ class TestNormalEvaluator(unittest.TestCase):
         """
             Tests evaluation of: {}
         """.format(expression)
-        self.assertRaises(error, self.evaluator.evaluate, expression=expression)
+        self.assertRaises(
+            error, self.evaluator.evaluate, expression=expression)

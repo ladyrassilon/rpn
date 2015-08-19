@@ -1,10 +1,8 @@
 import unittest
 
 from rpn.abstract import AbstractEvaluator
-from slugify import UniqueSlugify
-
-
 from utils import TemplateTestCase, Call, template
+
 
 class TestAbstractEvaluator(unittest.TestCase):
 
