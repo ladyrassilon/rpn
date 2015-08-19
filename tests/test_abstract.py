@@ -44,4 +44,5 @@ class TestAbstractEvaluator(unittest.TestCase):
         """
             Tests evaluation of: {}
         """.format(expression)
-        self.assertRaises(error, self.evaluator.evaluate, expression=expression)
+        self.assertRaises(
+            error, self.evaluator.evaluate, expression=expression)
