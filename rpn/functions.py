@@ -1,5 +1,8 @@
 
 def add(stack):
+    """
+    Adds the two top numbers ontop of the stack
+    """
     item_1 = stack.pop()
     item_2 = stack.pop()
     result = item_2 + item_1
@@ -7,6 +10,9 @@ def add(stack):
 
 
 def subtract(stack):
+    """
+    Subtracts the second from the first top numbers ontop of the stack
+    """
     item_1 = stack.pop()
     item_2 = stack.pop()
     result = item_2 - item_1
