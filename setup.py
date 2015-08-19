@@ -14,9 +14,9 @@ setup(
     author_email="contact@halfapenguin.com",
     install_requires=[],
     tests_require=[
-      "coverage",
-      "nose",
-      "pytest"
+        "coverage",
+        "nose",
+        "pytest"
     ],
     long_description=long_description,
     test_suite="nose.collector",
@@ -24,13 +24,13 @@ setup(
     keywords=["rpn", "math", "formula"],
     download_url="https://github.com/zooeysoftware/rpn/archive/",
     classifiers=[
-      "Development Status :: 4 - Beta",
-      "Programming Language :: Python :: 3.3",
-      "Programming Language :: Python :: 3.4",
-      "Programming Language :: Python :: 2.7",
-      "Programming Language :: Python :: Implementation :: CPython",
-      "Programming Language :: Python :: Implementation :: PyPy",
-      "Programming Language :: Python",
-      "Intended Audience :: Developers",
+        "Development Status :: 4 - Beta",
+        "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python :: Implementation :: PyPy",
+        "Programming Language :: Python",
+        "Intended Audience :: Developers",
     ]
 )
