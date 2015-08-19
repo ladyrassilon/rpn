@@ -26,7 +26,7 @@ setup(
     test_suite="nose.collector",
     url="https://github.com/zooeysoftware/rpn",
     keywords=["rpn", "math", "formula"],
-    download_url="https://github.com/zooeysoftware/rpn/archive/",
+    download_url="https://github.com/zooeysoftware/rpn/releases",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3.3",
