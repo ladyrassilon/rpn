@@ -24,9 +24,9 @@ def divide(stack):
     stack.append(result)
 
 def if_(stack):
-    evaluated = stack.pop()
-    item_1 = stack.pop()
     item_2 = stack.pop()
+    item_1 = stack.pop()
+    evaluated = stack.pop()
     if evaluated:
         stack.append(item_1)
     else:
