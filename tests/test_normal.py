@@ -13,6 +13,11 @@ class TestNormalEvaluator(unittest.TestCase):
     evaluator = NormalEvaluator()
 
     good_parameters = {
+        "good_1_item": Call("1", 1),
+        "good_add": Call("1 2 +", 3),
+        "good_subtract": Call("1 2 -", -1),
+        "good_divide": Call("1 2 /", 0.5),
+        "good_multiply": Call("1 2 *", 2),
         "good_1": Call("28 65 / 100.00 *", 43.07692307692308),
         "good_2": Call("4 5 7 2 + - *", -16),
         "good_3": Call("3 4 + 2  * 7 /", 2),
