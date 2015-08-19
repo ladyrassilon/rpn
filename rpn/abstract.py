@@ -1,8 +1,5 @@
 from collections import deque
 
-
-from operator import add, sub, or_, mul, div
-
 import re
 
 
