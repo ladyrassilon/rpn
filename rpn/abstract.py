@@ -2,6 +2,7 @@ from collections import deque
 
 import re
 
+from decimal import Decimal
 
 class AbstractEvaluator:
     operators = {}
@@ -28,7 +29,7 @@ class AbstractEvaluator:
             if token in self.operators:
                 processed_tokens.append(self.operators[token])
             elif self.is_number.match(token):
-                processed_tokens.append(float(token))
+                processed_tokens.append(Decimal(token))
             else:
                 raise ValueError("{} is not a valid operator or number")
         return processed_tokens
