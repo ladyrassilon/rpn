@@ -33,6 +33,7 @@ class TestNormalEvaluator(unittest.TestCase):
         "error_cheese": Call("Cheese", ValueError),
         "error_empty": Call("", IndexError),
         "error_add_one_number": Call("1 +", IndexError),
+        "illegal_char": Call("1 2 3 ?", ValueError)
     }
 
     @template(good_parameters)
