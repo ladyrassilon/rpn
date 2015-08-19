@@ -1,9 +1,6 @@
 import unittest
 
 from rpn.extended import ExtendedEvaluator
-from slugify import UniqueSlugify
-
-
 from utils import TemplateTestCase, Call, template
 
 
@@ -66,4 +63,5 @@ class TestExtendedEvaluator(unittest.TestCase):
         """
             Tests evaluation of: {}
         """.format(expression)
-        self.assertRaises(error, self.evaluator.evaluate, expression=expression)
+        self.assertRaises(
+            error, self.evaluator.evaluate, expression=expression)

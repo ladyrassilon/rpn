@@ -5,11 +5,13 @@ def add(stack):
     result = item_2 + item_1
     stack.append(result)
 
+
 def subtract(stack):
     item_1 = stack.pop()
     item_2 = stack.pop()
     result = item_2 - item_1
     stack.append(result)
+
 
 def multiply(stack):
     item_1 = stack.pop()
@@ -17,11 +19,13 @@ def multiply(stack):
     result = item_2 * item_1
     stack.append(result)
 
+
 def divide(stack):
     item_1 = stack.pop()
     item_2 = stack.pop()
     result = item_2 / item_1
     stack.append(result)
+
 
 def if_(stack):
     item_2 = stack.pop()
