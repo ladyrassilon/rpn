@@ -27,7 +27,12 @@ class TestExtendedEvaluator(unittest.TestCase):
     }
 
     bad_parameters = {
-        "bad_1": Call("1", 2)
+        "bad_1_item": Call("1", 2),
+        "bad_add": Call("1 2 +", 2),
+        "bad_subtract": Call("1 2 -", 2),
+        "bad_divide": Call("1 2 /", 2),
+        "bad_multiply": Call("1 2 *", 0.5),
+        "bad_if": Call("1 2 3 ?", 3),
     }
 
     error_parameters = {

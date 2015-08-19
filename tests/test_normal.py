@@ -22,13 +22,17 @@ class TestNormalEvaluator(unittest.TestCase):
     }
 
     bad_parameters = {
-        "bad_1": Call("1", 2)
+        "bad_1_item": Call("1", 2),
+        "bad_add": Call("1 2 +", 2),
+        "bad_subtract": Call("1 2 -", 2),
+        "bad_divide": Call("1 2 /", 2),
+        "bad_multiply": Call("1 2 *", 0.5),
     }
 
     error_parameters = {
         "error_cheese": Call("Cheese", ValueError),
         "error_empty": Call("", IndexError),
-        "error_add_one_number": Call("1 +", IndexError)
+        "error_add_one_number": Call("1 +", IndexError),
     }
 
     @template(good_parameters)

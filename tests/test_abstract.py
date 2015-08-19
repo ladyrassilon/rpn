@@ -15,12 +15,12 @@ class TestAbstractEvaluator(unittest.TestCase):
     }
 
     bad_parameters = {
-        "bad_1": Call("1", 2)
+        "bad_1_item": Call("1", 2),
+        "bad_2_items": Call("1 2", 1),
     }
 
     error_parameters = {
-        "error_cheese": Call("Cheese", ValueError),
-        "error_empty": Call("", IndexError)
+        "error_cheese": Call("Cheese", ValueError)
     }
 
     evaluator = AbstractEvaluator()
