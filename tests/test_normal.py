@@ -4,6 +4,9 @@ from rpn.normal import NormalEvaluator
 from utils import TemplateTestCase, Call, template
 from decimal import Decimal
 
+acc_dec = Decimal('43.07692307692307692307692308')
+
+
 class TestNormalEvaluator(unittest.TestCase):
 
     __metaclass__ = TemplateTestCase
@@ -16,7 +19,7 @@ class TestNormalEvaluator(unittest.TestCase):
         "good_subtract": Call("1 2 -", Decimal(-1)),
         "good_divide": Call("1 2 /", Decimal(0.5)),
         "good_multiply": Call("1 2 *", Decimal(2)),
-        "good_1": Call("28 65 / 100.00 *", Decimal(43.07692307692308)),
+        "good_1": Call("28.0 65.0 / 100.00 *", acc_dec),
         "good_2": Call("4 5 7 2 + - *", Decimal(-16)),
         "good_3": Call("3 4 + 2  * 7 /", Decimal(2)),
         "good_4": Call("5 7 + 6 2 -  *", Decimal(48)),
