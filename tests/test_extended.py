@@ -32,7 +32,9 @@ class TestExtendedEvaluator(unittest.TestCase):
 
     error_parameters = {
         "error_cheese": Call("Cheese", ValueError),
-        "error_empty": Call("", IndexError)
+        "error_empty": Call("", IndexError),
+        "error_add_one_number": Call("1 +", IndexError),
+        "error_if_not_enough_vars": Call("1 2 ?", IndexError),
     }
 
     @template(good_parameters)
