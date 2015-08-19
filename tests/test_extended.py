@@ -15,15 +15,18 @@ class TestExtendedEvaluator(unittest.TestCase):
 
     good_parameters = {
         "good_if_1": Call('1 27 38 ?', 27),
-        "good_if_1": Call('0 27 38 ?', 38),
-        "good_1": Call('32 56 56 - 0.00 ?', 1),
-        "good_2": Call('32 61 61 - 0.00 ?', 1),
-        "good_3": Call('32 100 98 + 0.00 ?', 1),
-        "good_4": Call('50 98 35 ? 0.00 ?', 1),
-        "good_5": Call('160 160 160 / - 1.00 * 100.00 0.00 ?', 1),
-        "good_6": Call('160 18 18 18 / 1.00 - 100.00 * 0.00 ? 0.00 ?', 1),
-        "good_7": Call('19 160 / 100.00 *', 11.875),
-        "good_8": Call('160 19 19 19 / 1.00 - 100.00 * 0.00 ? 0.00 ?', 1),
+        "good_if_2": Call('0 27 38 ?', 38),
+        "good_1_item": Call("1", 1),
+        "good_add": Call("1 2 +", 3),
+        "good_subtract": Call("1 2 -", -1),
+        "good_divide": Call("1 2 /", 0.5),
+        "good_multiply": Call("1 2 *", 2),
+        "good_if": Call("1 2 3 ?", 2),
+        "good_1": Call('32 56 57 - 0.00 ?', -1),
+        "good_2": Call('32 71 61 - 0.00 ?', 10),
+        "good_3": Call('32 100 98 + 0.00 ?', 198),
+        "good_4": Call('0 50 98 35 ? 0.00 ?', 0),
+        "good_5": Call('19 160 / 100.00 *', 11.875),
     }
 
     bad_parameters = {
