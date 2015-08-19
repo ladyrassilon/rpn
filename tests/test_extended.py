@@ -2,7 +2,7 @@ import unittest
 
 from rpn.extended import ExtendedEvaluator
 from utils import TemplateTestCase, Call, template
-
+from decimal import Decimal
 
 class TestExtendedEvaluator(unittest.TestCase):
 
@@ -11,28 +11,28 @@ class TestExtendedEvaluator(unittest.TestCase):
     evaluator = ExtendedEvaluator()
 
     good_parameters = {
-        "good_if_1": Call('1 27 38 ?', 27),
-        "good_if_2": Call('0 27 38 ?', 38),
-        "good_1_item": Call("1", 1),
-        "good_add": Call("1 2 +", 3),
-        "good_subtract": Call("1 2 -", -1),
-        "good_divide": Call("1 2 /", 0.5),
-        "good_multiply": Call("1 2 *", 2),
-        "good_if": Call("1 2 3 ?", 2),
-        "good_1": Call('32 56 57 - 0.00 ?', -1),
-        "good_2": Call('32 71 61 - 0.00 ?', 10),
-        "good_3": Call('32 100 98 + 0.00 ?', 198),
-        "good_4": Call('0 50 98 35 ? 0.00 ?', 0),
-        "good_5": Call('19 160 / 100.00 *', 11.875),
+        "good_if_1": Call('1 27 38 ?', Decimal(27)),
+        "good_if_2": Call('0 27 38 ?', Decimal(38)),
+        "good_1_item": Call("1", Decimal(1)),
+        "good_add": Call("1 2 +", Decimal(3)),
+        "good_subtract": Call("1 2 -", Decimal(-1)),
+        "good_divide": Call("1 2 /", Decimal(0.5)),
+        "good_multiply": Call("1 2 *", Decimal(2)),
+        "good_if": Call("1 2 3 ?", Decimal(2)),
+        "good_1": Call('32 56 57 - 0.00 ?', Decimal(-1)),
+        "good_2": Call('32 71 61 - 0.00 ?', Decimal(10)),
+        "good_3": Call('32 100 98 + 0.00 ?', Decimal(198)),
+        "good_4": Call('0 50 98 35 ? 0.00 ?', Decimal(0)),
+        "good_5": Call('19 160 / 100.00 *', Decimal(11.875)),
     }
 
     bad_parameters = {
-        "bad_1_item": Call("1", 2),
-        "bad_add": Call("1 2 +", 2),
-        "bad_subtract": Call("1 2 -", 2),
-        "bad_divide": Call("1 2 /", 2),
-        "bad_multiply": Call("1 2 *", 0.5),
-        "bad_if": Call("1 2 3 ?", 3),
+        "bad_1_item": Call("1", Decimal(2)),
+        "bad_add": Call("1 2 +", Decimal(2)),
+        "bad_subtract": Call("1 2 -", Decimal(2)),
+        "bad_divide": Call("1 2 /", Decimal(2)),
+        "bad_multiply": Call("1 2 *", Decimal(0.5)),
+        "bad_if": Call("1 2 3 ?", Decimal(3)),
     }
 
     error_parameters = {

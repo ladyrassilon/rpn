@@ -2,6 +2,7 @@ from collections import deque
 
 import re
 
+from decimal import Decimal
 
 class AbstractEvaluator:
     operators = {}
@@ -10,8 +11,7 @@ class AbstractEvaluator:
     def __init__(self, *args, **kwargs):
         self.stack = deque()
 
-    def evaluate(self, expression):
-        tokens = self.tokenize(expression)
+    def evaluate_tokens(self, tokens):
         for token in tokens:
             if callable(token):
                 token(self.stack)
@@ -19,13 +19,17 @@ class AbstractEvaluator:
                 self.stack.append(token)
         return self.stack.pop()
 
+    def evaluate(self, expression):
+        tokens = self.tokenize(expression)
+        return self.evaluate_tokens(tokens)
+
     def tokenize(self, expression):
         processed_tokens = []
         for token in expression.split():
             if token in self.operators:
                 processed_tokens.append(self.operators[token])
             elif self.is_number.match(token):
-                processed_tokens.append(float(token))
+                processed_tokens.append(Decimal(token))
             else:
                 raise ValueError("{} is not a valid operator or number")
         return processed_tokens

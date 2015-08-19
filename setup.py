@@ -6,17 +6,12 @@ with open("README.rst") as readme_file:
 
 setup(
     name="RPyN",
-    version="0.1.2",
+    version="0.1.3",
     packages=["rpn"],
     license="GNU GPL v3.0",
     description="Evaluates a given Reverse Polish Notation",
     author="Gemma Hentsch",
     author_email="contact@halfapenguin.com",
-    setup_requires=[
-        "coverage",
-        "nose",
-        "pylint"
-    ],
     install_requires=[],
     tests_require=[
         "coverage",
@@ -26,7 +21,7 @@ setup(
     test_suite="nose.collector",
     url="https://github.com/zooeysoftware/rpn",
     keywords=["rpn", "math", "formula"],
-    download_url="https://github.com/zooeysoftware/rpn/archive/",
+    download_url="https://github.com/zooeysoftware/rpn/releases",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3.3",
