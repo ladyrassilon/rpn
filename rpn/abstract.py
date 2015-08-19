@@ -21,7 +21,7 @@ class AbstractEvaluator:
 
     def evaluate(self, expression):
         tokens = self.tokenize(expression)
-        self.evaluate_tokens(tokens)
+        return self.evaluate_tokens(tokens)
 
     def tokenize(self, expression):
         processed_tokens = []
