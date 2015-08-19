@@ -19,7 +19,8 @@ class TestAbstractEvaluator(unittest.TestCase):
     }
 
     error_parameters = {
-        "error_1": Call("Cheese", 42)
+        "error_cheese": Call("Cheese", ValueError),
+        "error_empty": Call("", IndexError)
     }
 
     evaluator = AbstractEvaluator()
@@ -41,8 +42,8 @@ class TestAbstractEvaluator(unittest.TestCase):
         self.assertNotEqual(output, result)
 
     @template(error_parameters)
-    def _test_evaluate_error_expression(self, expression, result):
+    def _test_evaluate_error_expression(self, expression, error):
         """
             Tests evaluation of: {}
         """.format(expression)
-        self.assertRaises(ValueError, self.evaluator.evaluate, expression=expression)
+        self.assertRaises(error, self.evaluator.evaluate, expression=expression)
