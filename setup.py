@@ -12,11 +12,6 @@ setup(
     description="Evaluates a given Reverse Polish Notation",
     author="Gemma Hentsch",
     author_email="contact@halfapenguin.com",
-    setup_requires=[
-        "coverage",
-        "nose",
-        "pylint"
-    ],
     install_requires=[],
     tests_require=[
         "coverage",
