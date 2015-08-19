@@ -58,3 +58,4 @@ target/
 .DS_Store
 cover/
 pylint.out
+pep8_report.txt
