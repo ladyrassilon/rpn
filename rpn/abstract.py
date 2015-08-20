@@ -29,6 +29,12 @@ class AbstractEvaluator:
         for token in expression:
             if token in self.operators:
                 processed_tokens.append(self.operators[token])
+            elif (
+                isinstance(token, int) or
+                isinstance(token, float) or
+                isinstance(token, Decimal)
+            ):
+                processed_tokens.append(token)
             elif self.is_number.match(token):
                 processed_tokens.append(Decimal(token))
             else:
