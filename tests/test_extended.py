@@ -4,6 +4,17 @@ from rpn.extended import ExtendedEvaluator
 from utils import TemplateTestCase, Call, template
 from decimal import Decimal
 
+long_list_good = [
+    Decimal('30000.00'),
+    Decimal('30000.00'),
+    u'+',
+    Decimal('30000.00'),
+    u'+',
+    Decimal('30000.00'),
+    u'+'
+]
+
+
 class TestExtendedEvaluator(unittest.TestCase):
 
     __metaclass__ = TemplateTestCase
@@ -24,6 +35,8 @@ class TestExtendedEvaluator(unittest.TestCase):
         "good_3": Call('32 100 98 + 0.00 ?', Decimal(198)),
         "good_4": Call('0 50 98 35 ? 0.00 ?', Decimal(0)),
         "good_5": Call('19 160 / 100.00 *', Decimal(11.875)),
+        "good_list_1": Call(long_list_good, Decimal(120000.00)),
+        "good_list_2": Call(long_list_good[:-1], Decimal(30000.00)),
     }
 
     bad_parameters = {

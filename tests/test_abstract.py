@@ -9,7 +9,9 @@ class TestAbstractEvaluator(unittest.TestCase):
     __metaclass__ = TemplateTestCase
 
     good_parameters = {
-        "good_1": Call("1", Decimal(1))
+        "good_1": Call("1", Decimal(1)),
+        "good_list_1": Call([Decimal(3)], 3),
+        "good_list_3": Call([Decimal(1), Decimal(7)], 7),
     }
 
     bad_parameters = {
