@@ -6,6 +6,16 @@ from decimal import Decimal
 
 acc_dec = Decimal('43.07692307692307692307692308')
 
+long_list_good = [
+    Decimal('30000.00'),
+    Decimal('30000.00'),
+    u'+',
+    Decimal('30000.00'),
+    u'+',
+    Decimal('30000.00'),
+    u'+'
+]
+
 
 class TestNormalEvaluator(unittest.TestCase):
 
@@ -25,6 +35,8 @@ class TestNormalEvaluator(unittest.TestCase):
         "good_4": Call("5 7 + 6 2 -  *", Decimal(48)),
         "good_5": Call("4 2 3 5 1 - + * +", Decimal(18)),
         "good_6": Call("4 2 + 3 5 1 -  * +", Decimal(18)),
+        "good_list_1": Call(long_list_good, Decimal(120000.00)),
+        "good_list_2": Call(long_list_good[:-1], Decimal(30000.00)),
     }
 
     bad_parameters = {

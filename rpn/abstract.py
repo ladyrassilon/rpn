@@ -8,26 +8,33 @@ class AbstractEvaluator:
     operators = {}
     is_number = re.compile(r"[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?")
 
-    def __init__(self, *args, **kwargs):
-        self.stack = deque()
-
-    def evaluate_tokens(self, tokens):
+    def _evaluate_tokens(self, tokens):
+        stack = deque()
         for token in tokens:
             if callable(token):
-                token(self.stack)
+                token(stack)
             else:
-                self.stack.append(token)
-        return self.stack.pop()
+                stack.append(token)
+        return stack.pop()
 
     def evaluate(self, expression):
-        tokens = self.tokenize(expression)
-        return self.evaluate_tokens(tokens)
+        if isinstance(expression, str) or isinstance(expression, unicode):
+            tokens = self._tokenize(expression.split())
+        else:
+            tokens = self._tokenize(expression)
+        return self._evaluate_tokens(tokens)
 
-    def tokenize(self, expression):
+    def _tokenize(self, expression):
         processed_tokens = []
-        for token in expression.split():
+        for token in expression:
             if token in self.operators:
                 processed_tokens.append(self.operators[token])
+            elif (
+                isinstance(token, int) or
+                isinstance(token, float) or
+                isinstance(token, Decimal)
+            ):
+                processed_tokens.append(token)
             elif self.is_number.match(token):
                 processed_tokens.append(Decimal(token))
             else:
