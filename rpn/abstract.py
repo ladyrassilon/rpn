@@ -35,6 +35,8 @@ class AbstractEvaluator:
                 isinstance(token, Decimal)
             ):
                 processed_tokens.append(token)
+            elif token is None or token == "None":
+                processed_tokens.append(None)
             elif self.is_number.match(token):
                 processed_tokens.append(Decimal(token))
             else:

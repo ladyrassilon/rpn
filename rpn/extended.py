@@ -1,5 +1,5 @@
 from .abstract import AbstractEvaluator
-from .functions import add, subtract, multiply, divide, if_
+from .functions import add, subtract, multiply, divide, if_, exists
 
 
 class ExtendedEvaluator(AbstractEvaluator):
@@ -9,4 +9,5 @@ class ExtendedEvaluator(AbstractEvaluator):
         "*": multiply,
         "/": divide,
         "?": if_,
+        "E": exists,
     }

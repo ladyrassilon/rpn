@@ -37,6 +37,10 @@ class TestExtendedEvaluator(unittest.TestCase):
         "good_5": Call('19 160 / 100.00 *', Decimal(11.875)),
         "good_list_1": Call(long_list_good, Decimal(120000.00)),
         "good_list_2": Call(long_list_good[:-1], Decimal(30000.00)),
+        "good_exists_1": Call("None 1 2 E", Decimal(2)),
+        "good_exists_2": Call([None, 1, 2, "E"], Decimal(2)),
+        "good_exists_3": Call("1 1 2 E", Decimal(1)),
+        "good_exists_4": Call([1, 1, 2, "E"], Decimal(1)),
     }
 
     bad_parameters = {
@@ -46,6 +50,10 @@ class TestExtendedEvaluator(unittest.TestCase):
         "bad_divide": Call("1 2 /", Decimal(2)),
         "bad_multiply": Call("1 2 *", Decimal(0.5)),
         "bad_if": Call("1 2 3 ?", Decimal(3)),
+        "bad_exists_1": Call("None 1 2 E", Decimal(1)),
+        "bad_exists_2": Call([None, 1, 2, "E"], Decimal(1)),
+        "bad_exists_3": Call("1 1 2 E", Decimal(2)),
+        "bad_exists_4": Call([1, 1, 2, "E"], Decimal(2)),
     }
 
     error_parameters = {
