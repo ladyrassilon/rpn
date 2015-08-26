@@ -8,7 +8,8 @@ from .exceptions import (BadExpressionError, MathDomainError,
                          DivideByZeroError, UnacceptableToken,
                          TooShortBadExpression,
                          MathDomainError,
-                         DivideByZeroError)
+                         DivideByZeroError,
+                         NoneOperatorBadExpression)
 
 
 class AbstractEvaluator:
@@ -24,6 +25,8 @@ class AbstractEvaluator:
                 else:
                     stack.append(token)
             return stack.pop()
+        except TypeError as e:
+            raise NoneOperatorBadExpression(e)
         except IndexError as e:
             raise TooShortBadExpression(e)
         except ValueError as e:
