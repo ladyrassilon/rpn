@@ -1,7 +1,10 @@
 import unittest
 
 from rpn.normal import NormalEvaluator
-from utils import TemplateTestCase, Call, template
+from rpn.exceptions import (TooShortBadExpression,
+                            UnacceptableToken,
+                            DivideByZeroError)
+from .utils import TemplateTestCase, Call, template
 from decimal import Decimal
 
 acc_dec = Decimal('43.07692307692307692307692308')
@@ -48,10 +51,13 @@ class TestNormalEvaluator(unittest.TestCase):
     }
 
     error_parameters = {
-        "error_cheese": Call("Cheese", ValueError),
-        "error_empty": Call("", IndexError),
-        "error_add_one_number": Call("1 +", IndexError),
-        "illegal_char": Call("1 2 3 ?", ValueError)
+        "error_cheese": Call("Cheese", UnacceptableToken),
+        "error_empty_1": Call("", TooShortBadExpression),
+        "error_empty_2": Call([], TooShortBadExpression),
+        "error_add_one_number_1": Call("1 +", TooShortBadExpression),
+        "error_add_one_number_2": Call("1 +", TooShortBadExpression),
+        "illegal_char": Call("1 2 3 K", UnacceptableToken),
+        # "add_add":
     }
 
     @template(good_parameters)

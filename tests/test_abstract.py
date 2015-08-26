@@ -1,8 +1,9 @@
 import unittest
 
 from rpn.abstract import AbstractEvaluator
-from utils import TemplateTestCase, Call, template
+from .utils import TemplateTestCase, Call, template
 from decimal import Decimal
+
 
 class TestAbstractEvaluator(unittest.TestCase):
 
@@ -12,6 +13,8 @@ class TestAbstractEvaluator(unittest.TestCase):
         "good_1": Call("1", Decimal(1)),
         "good_list_1": Call([Decimal(3)], 3),
         "good_list_3": Call([Decimal(1), Decimal(7)], 7),
+        "good_none_1": Call([None], None),
+        "good_none_2": Call("None", None),
     }
 
     bad_parameters = {
