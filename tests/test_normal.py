@@ -3,7 +3,8 @@ import unittest
 from rpn.normal import NormalEvaluator
 from rpn.exceptions import (TooShortBadExpression,
                             UnacceptableToken,
-                            DivideByZeroError)
+                            DivideByZeroError,
+                            NoneOperatorBadExpression)
 from .utils import TemplateTestCase, Call, template
 from decimal import Decimal
 
@@ -57,6 +58,8 @@ class TestNormalEvaluator(unittest.TestCase):
         "error_add_one_number_1": Call("1 +", TooShortBadExpression),
         "error_add_one_number_2": Call("1 +", TooShortBadExpression),
         "illegal_char": Call("1 2 3 K", UnacceptableToken),
+        "none_add_1": Call("None None +", NoneOperatorBadExpression),
+        "none_add_2": Call([None, None, "+"], NoneOperatorBadExpression),
         # "add_add":
     }
 
