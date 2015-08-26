@@ -4,18 +4,36 @@ import re
 
 from decimal import Decimal
 
+from exceptions import (BadExpressionError, MathDomainError,
+                        DivideByZeroError, UnacceptableToken,
+                        TooShortBadExpression,
+                        OperatorOperatorBadExpression,
+                        MathDomainError,
+                        DivideByZeroError
+                        )
+
+
 class AbstractEvaluator:
     operators = {}
     is_number = re.compile(r"[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?")
 
     def _evaluate_tokens(self, tokens):
         stack = deque()
-        for token in tokens:
-            if callable(token):
-                token(stack)
-            else:
-                stack.append(token)
-        return stack.pop()
+        try:
+            for token in tokens:
+                if callable(token):
+                    token(stack)
+                else:
+                    stack.append(token)
+            return stack.pop()
+        except IndexError as e:
+            raise TooShortBadExpression(e)
+        except TypeError as e:
+            raise OperatorOperatorBadExpression(e)
+        except ValueError as e:
+            raise MathDomainError(e)
+        except ZeroDivisionError as e:
+            raise DivideByZeroError(e)
 
     def evaluate(self, expression):
         if isinstance(expression, str) or isinstance(expression, unicode):
@@ -40,5 +58,6 @@ class AbstractEvaluator:
             elif self.is_number.match(token):
                 processed_tokens.append(Decimal(token))
             else:
-                raise ValueError("{} is not a valid operator or number")
+                raise UnacceptableToken(
+                    "{} is not a valid operator or number".format(token))
         return processed_tokens

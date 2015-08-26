@@ -1,5 +1,10 @@
 import unittest
 
+from rpn.exceptions import (TooShortBadExpression,
+                            OperatorOperatorBadExpression,
+                            UnacceptableToken,
+                            DivideByZeroError)
+
 from rpn.extended import ExtendedEvaluator
 from utils import TemplateTestCase, Call, template
 from decimal import Decimal
@@ -57,10 +62,13 @@ class TestExtendedEvaluator(unittest.TestCase):
     }
 
     error_parameters = {
-        "error_cheese": Call("Cheese", ValueError),
-        "error_empty": Call("", IndexError),
-        "error_add_one_number": Call("1 +", IndexError),
-        "error_if_not_enough_vars": Call("1 2 ?", IndexError),
+        "error_cheese": Call("Cheese", UnacceptableToken),
+        "error_empty_1": Call("", TooShortBadExpression),
+        "error_empty_2": Call([], TooShortBadExpression),
+        "error_add_one_number_1": Call("1 +", TooShortBadExpression),
+        "error_add_one_number_2": Call("1 +", TooShortBadExpression),
+        "illegal_char": Call("1 2 3 K", UnacceptableToken),
+        "divide_by_zero": Call("1 0 /", DivideByZeroError),
     }
 
     @template(good_parameters)
