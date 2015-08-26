@@ -67,7 +67,9 @@ class TestExtendedEvaluator(unittest.TestCase):
         "error_add_one_number_1": Call("1 +", TooShortBadExpression),
         "error_add_one_number_2": Call("1 +", TooShortBadExpression),
         "illegal_char": Call("1 2 3 K", UnacceptableToken),
-        "divide_by_zero": Call("1 0 /", DivideByZeroError),
+        "divide_by_zero_1": Call("1 0 /", DivideByZeroError),
+        "divide_by_zero_2": Call([Decimal(1), Decimal(0), "/"], DivideByZeroError)
+
     }
 
     @template(good_parameters)
