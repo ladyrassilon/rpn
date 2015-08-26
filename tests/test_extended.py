@@ -1,7 +1,6 @@
 import unittest
 
 from rpn.exceptions import (TooShortBadExpression,
-                            OperatorOperatorBadExpression,
                             UnacceptableToken,
                             DivideByZeroError)
 

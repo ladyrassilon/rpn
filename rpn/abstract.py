@@ -7,7 +7,6 @@ from decimal import Decimal
 from exceptions import (BadExpressionError, MathDomainError,
                         DivideByZeroError, UnacceptableToken,
                         TooShortBadExpression,
-                        OperatorOperatorBadExpression,
                         MathDomainError,
                         DivideByZeroError
                         )
@@ -28,8 +27,6 @@ class AbstractEvaluator:
             return stack.pop()
         except IndexError as e:
             raise TooShortBadExpression(e)
-        except TypeError as e:
-            raise OperatorOperatorBadExpression(e)
         except ValueError as e:
             raise MathDomainError(e)
         except ZeroDivisionError as e:

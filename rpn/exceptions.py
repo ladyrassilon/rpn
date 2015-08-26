@@ -11,10 +11,6 @@ class TooShortBadExpression(BadExpressionError):
     pass
 
 
-class OperatorOperatorBadExpression(BadExpressionError):
-    pass
-
-
 class RealNumberError(RPyNError):
     pass
 

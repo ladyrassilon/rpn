@@ -2,7 +2,6 @@ import unittest
 
 from rpn.normal import NormalEvaluator
 from rpn.exceptions import (TooShortBadExpression,
-                            OperatorOperatorBadExpression,
                             UnacceptableToken,
                             DivideByZeroError)
 from utils import TemplateTestCase, Call, template
