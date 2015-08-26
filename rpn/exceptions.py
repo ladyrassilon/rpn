@@ -5,11 +5,15 @@ class RPyNError(Exception):
     pass
 
 
-class BadExpressionError(RPyNError, IndexError):
+class BadExpressionError(RPyNError):
     pass
 
 
-class TooShortBadExpression(BadExpressionError):
+class TooShortBadExpression(BadExpressionError, IndexError):
+    pass
+
+
+class NoneOperatorBadExpression(BadExpressionError, TypeError):
     pass
 
 
