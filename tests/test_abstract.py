@@ -4,6 +4,7 @@ from rpn.abstract import AbstractEvaluator
 from .utils import TemplateTestCase, Call, template
 from decimal import Decimal
 
+
 class TestAbstractEvaluator(unittest.TestCase):
 
     __metaclass__ = TemplateTestCase
