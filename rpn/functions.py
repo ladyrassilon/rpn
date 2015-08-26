@@ -60,9 +60,3 @@ def exists(stack):
         stack.append(item_2)
     else:
         stack.append(item_1)
-
-#isBlank
-
-#NaN
-
-#FixMe: deal with an operation that contains a callable.
