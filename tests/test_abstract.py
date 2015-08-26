@@ -1,7 +1,7 @@
 import unittest
 
 from rpn.abstract import AbstractEvaluator
-from utils import TemplateTestCase, Call, template
+from .utils import TemplateTestCase, Call, template
 from decimal import Decimal
 
 class TestAbstractEvaluator(unittest.TestCase):

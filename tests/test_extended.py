@@ -5,7 +5,7 @@ from rpn.exceptions import (TooShortBadExpression,
                             DivideByZeroError)
 
 from rpn.extended import ExtendedEvaluator
-from utils import TemplateTestCase, Call, template
+from .utils import TemplateTestCase, Call, template
 from decimal import Decimal
 
 long_list_good = [

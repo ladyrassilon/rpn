@@ -4,7 +4,7 @@ from rpn.normal import NormalEvaluator
 from rpn.exceptions import (TooShortBadExpression,
                             UnacceptableToken,
                             DivideByZeroError)
-from utils import TemplateTestCase, Call, template
+from .utils import TemplateTestCase, Call, template
 from decimal import Decimal
 
 acc_dec = Decimal('43.07692307692307692307692308')
