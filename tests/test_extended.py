@@ -1,5 +1,9 @@
 import unittest
 
+from rpn.exceptions import (TooShortBadExpression,
+                            UnacceptableToken,
+                            DivideByZeroError)
+
 from rpn.extended import ExtendedEvaluator
 from utils import TemplateTestCase, Call, template
 from decimal import Decimal
@@ -37,6 +41,10 @@ class TestExtendedEvaluator(unittest.TestCase):
         "good_5": Call('19 160 / 100.00 *', Decimal(11.875)),
         "good_list_1": Call(long_list_good, Decimal(120000.00)),
         "good_list_2": Call(long_list_good[:-1], Decimal(30000.00)),
+        "good_exists_1": Call("None 1 2 E", Decimal(2)),
+        "good_exists_2": Call([None, 1, 2, "E"], Decimal(2)),
+        "good_exists_3": Call("1 1 2 E", Decimal(1)),
+        "good_exists_4": Call([1, 1, 2, "E"], Decimal(1)),
     }
 
     bad_parameters = {
@@ -46,13 +54,20 @@ class TestExtendedEvaluator(unittest.TestCase):
         "bad_divide": Call("1 2 /", Decimal(2)),
         "bad_multiply": Call("1 2 *", Decimal(0.5)),
         "bad_if": Call("1 2 3 ?", Decimal(3)),
+        "bad_exists_1": Call("None 1 2 E", Decimal(1)),
+        "bad_exists_2": Call([None, 1, 2, "E"], Decimal(1)),
+        "bad_exists_3": Call("1 1 2 E", Decimal(2)),
+        "bad_exists_4": Call([1, 1, 2, "E"], Decimal(2)),
     }
 
     error_parameters = {
-        "error_cheese": Call("Cheese", ValueError),
-        "error_empty": Call("", IndexError),
-        "error_add_one_number": Call("1 +", IndexError),
-        "error_if_not_enough_vars": Call("1 2 ?", IndexError),
+        "error_cheese": Call("Cheese", UnacceptableToken),
+        "error_empty_1": Call("", TooShortBadExpression),
+        "error_empty_2": Call([], TooShortBadExpression),
+        "error_add_one_number_1": Call("1 +", TooShortBadExpression),
+        "error_add_one_number_2": Call("1 +", TooShortBadExpression),
+        "illegal_char": Call("1 2 3 K", UnacceptableToken),
+        "divide_by_zero": Call("1 0 /", DivideByZeroError),
     }
 
     @template(good_parameters)
