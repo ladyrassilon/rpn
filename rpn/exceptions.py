@@ -1,3 +1,5 @@
+from decimal import InvalidOperation
+
 
 class RPyNError(Exception):
     pass
@@ -19,7 +21,7 @@ class MathDomainError(RealNumberError, ValueError):
     pass
 
 
-class DivideByZeroError(RealNumberError, ZeroDivisionError):
+class DivideByZeroError(RealNumberError, InvalidOperation):
     pass
 
 
