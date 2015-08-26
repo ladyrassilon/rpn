@@ -2,7 +2,7 @@ from collections import deque
 
 import re
 
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 
 from .exceptions import (BadExpressionError, MathDomainError,
                          DivideByZeroError, UnacceptableToken,
@@ -28,7 +28,7 @@ class AbstractEvaluator:
             raise TooShortBadExpression(e)
         except ValueError as e:
             raise MathDomainError(e)
-        except ZeroDivisionError as e:
+        except (ZeroDivisionError, InvalidOperation) as e:
             raise DivideByZeroError(e)
 
     def evaluate(self, expression):
@@ -43,11 +43,9 @@ class AbstractEvaluator:
         for token in expression:
             if token in self.operators:
                 processed_tokens.append(self.operators[token])
-            elif (
-                isinstance(token, int) or
-                isinstance(token, float) or
-                isinstance(token, Decimal)
-            ):
+            elif isinstance(token, int) or isinstance(token, float):
+                processed_tokens.append(Decimal(token))
+            elif isinstance(token, Decimal):
                 processed_tokens.append(token)
             elif token is None or token == "None":
                 processed_tokens.append(None)
