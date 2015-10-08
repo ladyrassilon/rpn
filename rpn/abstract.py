@@ -12,7 +12,9 @@ from .exceptions import (BadExpressionError, MathDomainError,
                          NoneOperatorBadExpression)
 
 from sympy import symbols
-from sympy.core.symbol import Symbol as SymPySymbol
+from sympy.core.symbol import Symbol
+from sympy.core.expr import Expr
+
 none = symbols("none")
 
 class AbstractEvaluator:
@@ -23,15 +25,15 @@ class AbstractEvaluator:
         stack = deque()
         try:
             for token in tokens:
-                if callable(token) and not type(token) == SymPySymbol:
+                if callable(token) and not type(token) == Symbol:
                     token(stack)
                 else:
                     stack.append(token)
             result = stack.pop()
-            if type(result) == SymPySymbol:
+            if isinstance(result, Expr):
                 if result == none:
                     return None
-                raise NoneOperatorBadExpression("{} is invalid exception".format(result))
+                raise NoneOperatorBadExpression("{} is invalid expression".format(result))
             return result
         except TypeError as e:
             raise NoneOperatorBadExpression(e)
