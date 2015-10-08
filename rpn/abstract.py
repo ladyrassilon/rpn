@@ -11,6 +11,9 @@ from .exceptions import (BadExpressionError, MathDomainError,
                          DivideByZeroError,
                          NoneOperatorBadExpression)
 
+from sympy import symbols
+from sympy.core.symbol import Symbol as SymPySymbol
+none = symbols("none")
 
 class AbstractEvaluator:
     operators = {}
@@ -20,11 +23,14 @@ class AbstractEvaluator:
         stack = deque()
         try:
             for token in tokens:
-                if callable(token):
+                if callable(token) and not type(token) == SymPySymbol:
                     token(stack)
                 else:
                     stack.append(token)
-            return stack.pop()
+            result = stack.pop()
+            if type(result) == SymPySymbol:
+                raise NoneOperatorBadExpression("{} is invalid exception".format(result))
+            return result
         except TypeError as e:
             raise NoneOperatorBadExpression(e)
         except IndexError as e:
@@ -43,6 +49,7 @@ class AbstractEvaluator:
 
     def _tokenize(self, expression):
         processed_tokens = []
+        
         for token in expression:
             if token in self.operators:
                 processed_tokens.append(self.operators[token])
@@ -51,7 +58,7 @@ class AbstractEvaluator:
             elif isinstance(token, Decimal):
                 processed_tokens.append(token)
             elif token is None or token == "None":
-                processed_tokens.append(None)
+                processed_tokens.append(none)
             elif self.is_number.match(token):
                 processed_tokens.append(Decimal(token))
             else:
