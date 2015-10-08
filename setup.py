@@ -12,7 +12,9 @@ setup(
     description="Evaluates a given Reverse Polish Notation",
     author="Gemma Hentsch",
     author_email="contact@halfapenguin.com",
-    install_requires=[],
+    install_requires=[
+        "sympy"
+    ],
     tests_require=[
         "coverage",
         "nose",
