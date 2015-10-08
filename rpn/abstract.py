@@ -29,6 +29,8 @@ class AbstractEvaluator:
                     stack.append(token)
             result = stack.pop()
             if type(result) == SymPySymbol:
+                if result == none:
+                    return None
                 raise NoneOperatorBadExpression("{} is invalid exception".format(result))
             return result
         except TypeError as e:
