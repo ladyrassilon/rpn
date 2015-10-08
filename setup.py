@@ -6,13 +6,15 @@ with open("README.rst") as readme_file:
 
 setup(
     name="RPyN",
-    version="0.1.7",
+    version="0.1.8",
     packages=["rpn"],
     license="GNU GPL v3.0",
     description="Evaluates a given Reverse Polish Notation",
     author="Gemma Hentsch",
     author_email="contact@halfapenguin.com",
-    install_requires=[],
+    install_requires=[
+        "sympy"
+    ],
     tests_require=[
         "coverage",
         "nose",

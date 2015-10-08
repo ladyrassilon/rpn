@@ -7,6 +7,8 @@ from rpn.exceptions import (TooShortBadExpression,
 from rpn.extended import ExtendedEvaluator
 from .utils import TemplateTestCase, Call, template
 from decimal import Decimal
+from sympy import symbols
+none = symbols("none")
 
 long_list_good = [
     Decimal('30000.00'),
@@ -45,6 +47,8 @@ class TestExtendedEvaluator(unittest.TestCase):
         "good_exists_2": Call([None, 1, 2, "E"], Decimal(2)),
         "good_exists_3": Call("1 1 2 E", Decimal(1)),
         "good_exists_4": Call([1, 1, 2, "E"], Decimal(1)),
+        #"real_world_good": Call([Decimal(1), Decimal('80000000.00'), Decimal('85000000.00'), u'/', u'-', Decimal('100.00'), u'*'], Decimal(6.25)),
+        "real_world_good_2": Call([Decimal(398E5), None, None, Decimal(44169480), '+', Decimal(2E6), 'E', Decimal(0), '?'], Decimal(2E6))
     }
 
     bad_parameters = {

@@ -1,4 +1,3 @@
-
 def add(stack):
     """
     Adds the two top numbers ontop of the stack
@@ -53,10 +52,12 @@ def exists(stack):
     value is returned.
 
     """
+    from sympy import symbols
+    none = symbols("none")
     item_2 = stack.pop()
     item_1 = stack.pop()
     evaluated = stack.pop()
-    if evaluated is None:
+    if evaluated is none:
         stack.append(item_2)
     else:
         stack.append(item_1)
