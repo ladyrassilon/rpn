@@ -2,6 +2,10 @@ from exceptions import NotPositiveInteger
 
 
 def get_items(operator_function):
+    """
+    Pops the top item off the stack, and if its a positive
+    integer, pulls that many items off the stack and returns them as a list.
+    """
     def new_operator_function(stack):
         number_of_items = stack.pop()
 
