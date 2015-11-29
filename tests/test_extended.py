@@ -65,7 +65,7 @@ class TestExtendedEvaluator(unittest.TestCase):
         "good_sum_1": Call([4, 5, 2, "S"], Decimal(9)),
         "good_sum_2": Call([-10, 4, 5, 3, "S"], Decimal(-1)),
         "good_sum_3": Call([-10, 4, 5, 2, "S"], Decimal(9)),
-        "good_sum_4": Call([27.5, -10, 4, 5, 2, "S"], Decimal(26.5)),
+        "good_sum_4": Call([27.5, -10, 4, 5, 4, "S"], Decimal(26.5)),
         #"real_world_good": Call([Decimal(1), Decimal('80000000.00'), Decimal('85000000.00'), u'/', u'-', Decimal('100.00'), u'*'], Decimal(6.25)),
         "real_world_good_2": Call([Decimal(398E5), None, None, Decimal(44169480), '+', Decimal(2E6), 'E', Decimal(0), '?'], Decimal(2E6))
     }
