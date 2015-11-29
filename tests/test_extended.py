@@ -72,8 +72,11 @@ class TestExtendedEvaluator(unittest.TestCase):
         "good_median_1": Call([9, 3, 20, 12, 4, "|"], Decimal(10.5)),
         "good_median_2": Call([5, 4, 3, 2, 1, 5, "|"], Decimal(3)),
         "good_median_3": Call([1, 2, 3, 4, 4, "|"], Decimal(2.5)),
-        #"real_world_good": Call([Decimal(1), Decimal('80000000.00'), Decimal('85000000.00'), u'/', u'-', Decimal('100.00'), u'*'], Decimal(6.25)),
-        "real_world_good_2": Call([Decimal(398E5), None, None, Decimal(44169480), '+', Decimal(2E6), 'E', Decimal(0), '?'], Decimal(2E6))
+        "real_world_good": Call(
+            [
+                Decimal(398E5), None, None, Decimal(44169480), '+',
+                Decimal(2E6), 'E', Decimal(0), '?'
+            ], Decimal(2E6))
     }
 
     bad_parameters = {
@@ -120,7 +123,8 @@ class TestExtendedEvaluator(unittest.TestCase):
         "error_add_one_number_2": Call("1 +", TooShortBadExpression),
         "illegal_char": Call("1 2 3 K", UnacceptableToken),
         "divide_by_zero_1": Call("1 0 /", DivideByZeroError),
-        "divide_by_zero_2": Call([Decimal(1), Decimal(0), "/"], DivideByZeroError),
+        "divide_by_zero_2": Call(
+            [Decimal(1), Decimal(0), "/"], DivideByZeroError),
         "too_many_sum_parameters": Call([1, 2, 3, "S"], TooShortBadExpression),
         "not_an_integer_sum": Call([1, 2, 3.5, "S"], NotPositiveInteger),
     }

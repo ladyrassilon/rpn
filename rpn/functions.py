@@ -13,7 +13,7 @@ def add(stack):
 
 def subtract(stack):
     """
-    Subtracts the second from the first top numbers ontop of the stack
+    Subtracts the second from the first top numbers ontop of the stack.
     """
     item_1 = stack.pop()
     item_2 = stack.pop()
@@ -22,6 +22,9 @@ def subtract(stack):
 
 
 def multiply(stack):
+    """
+    Multiply the first two numbers on top of the stack.
+    """
     item_1 = stack.pop()
     item_2 = stack.pop()
     result = item_2 * item_1
@@ -29,6 +32,9 @@ def multiply(stack):
 
 
 def divide(stack):
+    """
+    Divides the second number by the first number on top of the stack.
+    """
     item_1 = stack.pop()
     item_2 = stack.pop()
     result = item_2 / item_1
@@ -36,6 +42,13 @@ def divide(stack):
 
 
 def if_(stack):
+    """
+    Take in a stack, pop off the interrogated value, and the two possible
+    results
+
+    If the interrogated value evaluates to true then the first value is put
+    on the top of the stack, otherwise the second value is returned.
+    """
     item_2 = stack.pop()
     item_1 = stack.pop()
     evaluated = stack.pop()
@@ -150,6 +163,10 @@ def sum_list(stack, items):
 
 @get_items
 def mean_list(stack, items):
+    """
+    Pop off the first item, then if its a positive integer, pop that many items
+    off the stack and return their mean.
+    """
     number_of_items = len(items)
     total = sum(items)
     average = total / number_of_items
@@ -158,6 +175,10 @@ def mean_list(stack, items):
 
 @get_items
 def median_list(stack, items):
+    """
+    Pop off the first item, then if its a positive integer, pop that many items
+    off the stack and return their median.
+    """
     items.sort()
     number_of_items = len(items)
     mid = number_of_items / 2
