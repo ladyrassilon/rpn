@@ -150,6 +150,10 @@ def sum_list(stack, items):
 
 @get_items
 def mean_list(stack, items):
+    """
+    Pop off the first item, then if its a positive integer, pop that many items
+    off the stack and return their mean.
+    """
     number_of_items = len(items)
     total = sum(items)
     average = total / number_of_items
@@ -158,6 +162,10 @@ def mean_list(stack, items):
 
 @get_items
 def median_list(stack, items):
+    """
+    Pop off the first item, then if its a positive integer, pop that many items
+    off the stack and return their median.
+    """
     items.sort()
     number_of_items = len(items)
     mid = number_of_items / 2
