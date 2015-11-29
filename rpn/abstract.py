@@ -45,6 +45,10 @@ class AbstractEvaluator:
             raise DivideByZeroError(e)
 
     def evaluate(self, expression):
+        """
+        Pass a list or string of numbers and operators in reverse polish
+        notation.
+        """
         if isinstance(expression, str) or isinstance(expression, unicode):
             tokens = self._tokenize(expression.split())
         else:
