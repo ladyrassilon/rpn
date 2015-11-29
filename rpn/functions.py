@@ -124,7 +124,7 @@ def absolute(stack):
     stack.append(absolute_item)
 
 
-def neg(stack):
+def negative(stack):
     """
     Pop off the first item and return its negative.
     """
