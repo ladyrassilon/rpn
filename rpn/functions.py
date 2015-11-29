@@ -148,3 +148,8 @@ def sum_list(stack, number_of_items):
         items.append(stack.pop())
     total = sum(items)
     stack.append(total)
+
+
+@get_number_of_items
+def mean_list(stack, number_of_items):
+    pass
