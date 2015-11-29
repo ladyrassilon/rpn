@@ -136,6 +136,7 @@ def negative(stack):
 
     stack.append(negative_item)
 
+
 def sum_list(stack):
     """
     Pop off the first item, then if its a positive integer, pop that many items
