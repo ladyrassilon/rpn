@@ -55,6 +55,9 @@ class TestExtendedEvaluator(unittest.TestCase):
         "good_less_than_1": Call([2, 3, 5, 10, "<"], Decimal(5)),
         "good_less_than_2": Call([3, 3, 5, 10, "<"], Decimal(5)),
         "good_less_than_3": Call([4, 3, 5, 10, "<"], Decimal(10)),
+        "good_absolute_1": Call([-4, "A"], Decimal(4)),
+        "good_absolute_2": Call([0, "A"], Decimal(0)),
+        "good_absolute_3": Call([4, "A"], Decimal(4)),
         #"real_world_good": Call([Decimal(1), Decimal('80000000.00'), Decimal('85000000.00'), u'/', u'-', Decimal('100.00'), u'*'], Decimal(6.25)),
         "real_world_good_2": Call([Decimal(398E5), None, None, Decimal(44169480), '+', Decimal(2E6), 'E', Decimal(0), '?'], Decimal(2E6))
     }
@@ -78,6 +81,9 @@ class TestExtendedEvaluator(unittest.TestCase):
         "bad_less_than_1": Call([2, 3, 5, 10, "<"], Decimal(10)),
         "bad_less_than_2": Call([3, 3, 5, 10, "<"], Decimal(10)),
         "bad_less_than_3": Call([4, 3, 5, 10, "<"], Decimal(5)),
+        "bad_absolute_1": Call([-4, "A"], Decimal(-4)),
+        "bad_absolute_2": Call([0, "A"], Decimal(4)),
+        "bad_absolute_3": Call([4, "A"], Decimal(-4)),
     }
 
     error_parameters = {

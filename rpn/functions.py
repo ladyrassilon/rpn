@@ -113,7 +113,7 @@ def less_than(stack):
         stack.append(item_2)
 
 
-def mod(stack):
+def absolute(stack):
     """
     Pop off the first item, and return its absolute value.
     """
