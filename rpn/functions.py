@@ -1,5 +1,6 @@
 from decorators import get_items
 
+
 def add(stack):
     """
     Adds the two top numbers ontop of the stack
@@ -153,3 +154,17 @@ def mean_list(stack, items):
     total = sum(items)
     average = total / number_of_items
     stack.append(average)
+
+
+@get_items
+def median_list(stack, items):
+    items.sort()
+    number_of_items = len(items)
+    mid = number_of_items / 2
+    if number_of_items % 2:
+        median = items[mid]
+    else:
+        item_1 = items[mid-1]
+        item_2 = items[mid]
+        median = (item_1 + item_2)/2
+    stack.append(median)
