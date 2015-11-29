@@ -107,7 +107,7 @@ def less_than(stack):
     conditional_1 = stack.pop()
     conditional_2 = stack.pop()
 
-    if conditional_1 > conditional_2:
+    if conditional_1 < conditional_2:
         stack.append(item_1)
     else:
         stack.append(item_2)
