@@ -1,4 +1,4 @@
-from exceptions import NotPositiveInteger
+from decorators import get_number_of_items
 
 def add(stack):
     """
@@ -137,17 +137,14 @@ def negative(stack):
     stack.append(negative_item)
 
 
-def sum_list(stack):
+@get_number_of_items
+def sum_list(stack, number_of_items):
     """
     Pop off the first item, then if its a positive integer, pop that many items
     off the stack and return their sum.
     """
-    number_of_items_in_list = stack.pop()
-    if (int(number_of_items_in_list) != number_of_items_in_list) or \
-        number_of_items_in_list < 1:
-            raise NotPositiveInteger(number_of_items_in_list)
     items = []
-    for _ in range(number_of_items_in_list):
+    for _ in range(number_of_items):
         items.append(stack.pop())
     total = sum(items)
     stack.append(total)
