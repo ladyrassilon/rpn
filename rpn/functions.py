@@ -1,3 +1,5 @@
+from exceptions import NotPositiveInteger
+
 def add(stack):
     """
     Adds the two top numbers ontop of the stack
@@ -139,5 +141,12 @@ def sum_list(stack):
     Pop off the first item, then if its a positive integer, pop that many items
     off the stack and return their sum.
     """
-    pass
-
+    number_of_items_in_list = stack.pop()
+    if (int(number_of_items_in_list) != number_of_items_in_list) or \
+        number_of_items_in_list < 1:
+            raise NotPositiveInteger(number_of_items_in_list)
+    items = []
+    for _ in range(number_of_items_in_list):
+        items.append(stack.pop())
+    total = sum(items)
+    stack.append(total)

@@ -33,5 +33,5 @@ class UnacceptableToken(RPyNError, ValueError):
     pass
 
 
-class NotPositiveInteger(RPyNError, ValueError):
+class NotPositiveInteger(BadExpressionError):
     pass
