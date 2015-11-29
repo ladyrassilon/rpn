@@ -1,5 +1,6 @@
 from .abstract import AbstractEvaluator
-from .functions import add, subtract, multiply, divide, if_, exists, equals
+from .functions import add, subtract, multiply, divide, if_, exists, equals,\
+    greater_than
 
 
 class ExtendedEvaluator(AbstractEvaluator):
@@ -11,4 +12,5 @@ class ExtendedEvaluator(AbstractEvaluator):
         "?": if_,
         "E": exists,
         "=": equals,
+        ">": greater_than,
     }
