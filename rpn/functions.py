@@ -61,3 +61,75 @@ def exists(stack):
         stack.append(item_2)
     else:
         stack.append(item_1)
+
+
+def equals(stack):
+    """
+    Take the stack, pop off four items, if the two last items are equals
+    append the first item to the stack, if they are unequal the second.
+    """
+    item_1 = stack.pop()
+    item_2 = stack.pop()
+    conditional_1 = stack.pop()
+    conditional_2 = stack.pop()
+
+    if conditional_1 == conditional_2:
+        stack.append(item_1)
+    else:
+        stack.append(item_2)
+
+
+def greater_than(stack):
+    """
+    Take the stack, pop off four items, if the first conditional is larger than
+    the second conditional append the first item to the stack, otherwise,
+    append the second.
+    """
+    item_1 = stack.pop()
+    item_2 = stack.pop()
+    conditional_1 = stack.pop()
+    conditional_2 = stack.pop()
+
+    if conditional_1 > conditional_2:
+        stack.append(item_1)
+    else:
+        stack.append(item_2)
+
+
+def less_than(stack):
+    """
+    Take the stack, pop off four items, if the first conditional is larger than
+    the second conditional append the first item to the stack, otherwise,
+    append the second.
+    """
+    item_1 = stack.pop()
+    item_2 = stack.pop()
+    conditional_1 = stack.pop()
+    conditional_2 = stack.pop()
+
+    if conditional_1 > conditional_2:
+        stack.append(item_1)
+    else:
+        stack.append(item_2)
+
+
+def mod(stack):
+    """
+    Pop off the first item, and return its absolute value.
+    """
+    item = stack.pop()
+
+    absolute_item = abs(item)
+
+    stack.append(absolute_item)
+
+
+def neg(stack):
+    """
+    Pop off the first item and return its negative.
+    """
+    item = stack.pop()
+
+    negative_item = -item
+
+    stack.append(negative_item)

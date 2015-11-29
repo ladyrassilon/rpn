@@ -47,6 +47,8 @@ class TestExtendedEvaluator(unittest.TestCase):
         "good_exists_2": Call([None, 1, 2, "E"], Decimal(2)),
         "good_exists_3": Call("1 1 2 E", Decimal(1)),
         "good_exists_4": Call([1, 1, 2, "E"], Decimal(1)),
+        "good_equals_1": Call([2, 2, 5, 10, "="], Decimal(10)),
+        "good_equals_2": Call([2, 3, 5, 10, "="], Decimal(5)),
         #"real_world_good": Call([Decimal(1), Decimal('80000000.00'), Decimal('85000000.00'), u'/', u'-', Decimal('100.00'), u'*'], Decimal(6.25)),
         "real_world_good_2": Call([Decimal(398E5), None, None, Decimal(44169480), '+', Decimal(2E6), 'E', Decimal(0), '?'], Decimal(2E6))
     }
@@ -62,6 +64,8 @@ class TestExtendedEvaluator(unittest.TestCase):
         "bad_exists_2": Call([None, 1, 2, "E"], Decimal(1)),
         "bad_exists_3": Call("1 1 2 E", Decimal(2)),
         "bad_exists_4": Call([1, 1, 2, "E"], Decimal(2)),
+        "bad_equals_1": Call([5, 10, 2, 2, "="], Decimal(5)),
+        "bad_equals_2": Call([5, 10, 2, 3, "="], Decimal(10)),
     }
 
     error_parameters = {
