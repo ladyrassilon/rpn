@@ -61,6 +61,10 @@ class TestExtendedEvaluator(unittest.TestCase):
         "good_negative_1": Call([-4, "N"], Decimal(4)),
         "good_negative_2": Call([0, "N"], Decimal(0)),
         "good_negative_3": Call([4, "N"], Decimal(-4)),
+        "good_sum_1": Call([4, 5, 2, "S"], Decimal(9)),
+        "good_sum_2": Call([-10, 4, 5, 3, "S"], Decimal(-1)),
+        "good_sum_3": Call([-10, 4, 5, 2, "S"], Decimal(9)),
+        "good_sum_4": Call([27.5, -10, 4, 5, 2, "S"], Decimal(26.5)),
         #"real_world_good": Call([Decimal(1), Decimal('80000000.00'), Decimal('85000000.00'), u'/', u'-', Decimal('100.00'), u'*'], Decimal(6.25)),
         "real_world_good_2": Call([Decimal(398E5), None, None, Decimal(44169480), '+', Decimal(2E6), 'E', Decimal(0), '?'], Decimal(2E6))
     }
@@ -90,6 +94,10 @@ class TestExtendedEvaluator(unittest.TestCase):
         "bad_negative_1": Call([-4, "N"], Decimal(-4)),
         "bad_negative_2": Call([0, "N"], Decimal(-4)),
         "bad_negative_3": Call([4, "N"], Decimal(4)),
+        "bad_sum_1": Call([4, 5, 2, "S"], Decimal(10)),
+        "bad_sum_2": Call([-10, 4, 5, 3, "S"], Decimal(-3)),
+        "bad_sum_3": Call([-10, 4, 5, 2, "S"], Decimal(-1)),
+        "bad_sum_4": Call([27.5, -10, 4, 5, 2, "S"], Decimal(0)),
     }
 
     error_parameters = {
@@ -100,8 +108,8 @@ class TestExtendedEvaluator(unittest.TestCase):
         "error_add_one_number_2": Call("1 +", TooShortBadExpression),
         "illegal_char": Call("1 2 3 K", UnacceptableToken),
         "divide_by_zero_1": Call("1 0 /", DivideByZeroError),
-        "divide_by_zero_2": Call([Decimal(1), Decimal(0), "/"], DivideByZeroError)
-
+        "divide_by_zero_2": Call([Decimal(1), Decimal(0), "/"], DivideByZeroError),
+        "too_many_sum_parameters": Call([1, 2, 3, "S"], TooShortBadExpression)
     }
 
     @template(good_parameters)
