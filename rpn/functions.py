@@ -1,4 +1,4 @@
-from decorators import get_number_of_items
+from decorators import get_items
 
 def add(stack):
     """
@@ -137,19 +137,19 @@ def negative(stack):
     stack.append(negative_item)
 
 
-@get_number_of_items
-def sum_list(stack, number_of_items):
+@get_items
+def sum_list(stack, items):
     """
     Pop off the first item, then if its a positive integer, pop that many items
     off the stack and return their sum.
     """
-    items = []
-    for _ in range(number_of_items):
-        items.append(stack.pop())
     total = sum(items)
     stack.append(total)
 
 
-@get_number_of_items
-def mean_list(stack, number_of_items):
-    pass
+@get_items
+def mean_list(stack, items):
+    number_of_items = len(items)
+    total = sum(items)
+    average = total / number_of_items
+    stack.append(average)

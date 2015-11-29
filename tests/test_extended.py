@@ -66,9 +66,9 @@ class TestExtendedEvaluator(unittest.TestCase):
         "good_sum_2": Call([-10, 4, 5, 3, "S"], Decimal(-1)),
         "good_sum_3": Call([-10, 4, 5, 2, "S"], Decimal(9)),
         "good_sum_4": Call([27.5, -10, 4, 5, 4, "S"], Decimal(26.5)),
-        "good_mean_1": Call([10, 20, 30, 40, 4, "-"], Decimal(25)),
-        "good_mean_2": Call([10, 20, 30, 40, 3, "-"], Decimal(30)),
-        "good_mean_2": Call([10, 20, 30, 40, 2, "-"], Decimal(35)),
+        "good_mean_1": Call([10, 20, 30, 40, 4, "_"], Decimal(25)),
+        "good_mean_2": Call([10, 20, 30, 40, 3, "_"], Decimal(30)),
+        "good_mean_3": Call([10, 20, 30, 40, 2, "_"], Decimal(35)),
         #"real_world_good": Call([Decimal(1), Decimal('80000000.00'), Decimal('85000000.00'), u'/', u'-', Decimal('100.00'), u'*'], Decimal(6.25)),
         "real_world_good_2": Call([Decimal(398E5), None, None, Decimal(44169480), '+', Decimal(2E6), 'E', Decimal(0), '?'], Decimal(2E6))
     }
@@ -102,8 +102,8 @@ class TestExtendedEvaluator(unittest.TestCase):
         "bad_sum_2": Call([-10, 4, 5, 3, "S"], Decimal(-3)),
         "bad_sum_3": Call([-10, 4, 5, 2, "S"], Decimal(-1)),
         "bad_sum_4": Call([27.5, -10, 4, 5, 2, "S"], Decimal(0)),
-        "bad_mean_1": Call([10, 20, 30, 40, 4, "-"], Decimal(35)),
-        "bad_mean_2": Call([10, 20, 30, 40, 2, "-"], Decimal(25)),
+        "bad_mean_1": Call([10, 20, 30, 40, 4, "_"], Decimal(35)),
+        "bad_mean_2": Call([10, 20, 30, 40, 2, "_"], Decimal(25)),
     }
 
     error_parameters = {

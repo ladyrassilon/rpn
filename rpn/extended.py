@@ -17,5 +17,5 @@ class ExtendedEvaluator(AbstractEvaluator):
         "A": absolute,
         "N": negative,
         "S": sum_list,
-        "-": mean_list,
+        "_": mean_list,
     }
