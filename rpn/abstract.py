@@ -17,6 +17,7 @@ from sympy.core.expr import Expr
 
 none = symbols("none")
 
+
 class AbstractEvaluator:
     operators = {}
     is_number = re.compile(r"[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?")
@@ -33,7 +34,8 @@ class AbstractEvaluator:
             if isinstance(result, Expr):
                 if result == none:
                     return None
-                raise NoneOperatorBadExpression("{} is invalid expression".format(result))
+                raise NoneOperatorBadExpression(
+                    "{} is invalid expression".format(result))
             return result
         except TypeError as e:
             raise NoneOperatorBadExpression(e)
@@ -57,7 +59,7 @@ class AbstractEvaluator:
 
     def _tokenize(self, expression):
         processed_tokens = []
-        
+
         for token in expression:
             if token in self.operators:
                 processed_tokens.append(self.operators[token])
