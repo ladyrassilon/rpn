@@ -2,7 +2,8 @@ import unittest
 
 from rpn.exceptions import (TooShortBadExpression,
                             UnacceptableToken,
-                            DivideByZeroError)
+                            DivideByZeroError,
+                            NotPositiveInteger)
 
 from rpn.extended import ExtendedEvaluator
 from .utils import TemplateTestCase, Call, template
@@ -109,7 +110,8 @@ class TestExtendedEvaluator(unittest.TestCase):
         "illegal_char": Call("1 2 3 K", UnacceptableToken),
         "divide_by_zero_1": Call("1 0 /", DivideByZeroError),
         "divide_by_zero_2": Call([Decimal(1), Decimal(0), "/"], DivideByZeroError),
-        "too_many_sum_parameters": Call([1, 2, 3, "S"], TooShortBadExpression)
+        "too_many_sum_parameters": Call([1, 2, 3, "S"], TooShortBadExpression),
+        "not_an_integer_sum": Call([1, 2, 3.5, "S"], NotPositiveInteger),
     }
 
     @template(good_parameters)
