@@ -1,5 +1,7 @@
 from .abstract import AbstractEvaluator
-from .functions import add, subtract, multiply, divide, if_, exists
+from .functions import add, subtract, multiply, divide, if_, exists, equals,\
+    greater_than, less_than, absolute, negative, sum_list, mean_list,\
+    median_list
 
 
 class ExtendedEvaluator(AbstractEvaluator):
@@ -10,4 +12,12 @@ class ExtendedEvaluator(AbstractEvaluator):
         "/": divide,
         "?": if_,
         "E": exists,
+        "=": equals,
+        ">": greater_than,
+        "<": less_than,
+        "A": absolute,
+        "N": negative,
+        "S": sum_list,
+        "_": mean_list,
+        "|": median_list,
     }

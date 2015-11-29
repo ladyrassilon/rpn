@@ -31,3 +31,7 @@ class DivideByZeroError(RealNumberError, InvalidOperation):
 
 class UnacceptableToken(RPyNError, ValueError):
     pass
+
+
+class NotPositiveInteger(BadExpressionError):
+    pass
