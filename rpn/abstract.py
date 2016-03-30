@@ -15,7 +15,7 @@ from sympy.core.symbol import Symbol
 from sympy.core.expr import Expr
 
 
-class AbstractEvaluator:
+class AbstractEvaluator(object):
     """
     Base evaluator, that when implemented you can add operators to.
 
