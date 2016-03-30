@@ -1,4 +1,9 @@
 # pylint: disable=too-few-public-methods
+"""
+Base evaluator, that when implemented you can add operators to.
+
+Override operators dictionary.
+"""
 from collections import deque
 
 import re
