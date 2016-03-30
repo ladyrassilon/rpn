@@ -33,7 +33,7 @@ class AbstractEvaluator(object):
         stack = deque()
         try:
             for token in tokens:
-                if callable(token) and not type(token) == Symbol:
+                if callable(token) and not isinstance(token, Symbol):
                     token(stack)
                 else:
                     stack.append(token)
