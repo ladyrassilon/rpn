@@ -16,6 +16,11 @@ from sympy.core.expr import Expr
 
 
 class AbstractEvaluator:
+    """
+    Base evaluator, that when implemented you can add operators to.
+
+    Override operators dictionary.
+    """
     operators = {}
     none = symbols("none")
     is_number = re.compile(r"[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?")
