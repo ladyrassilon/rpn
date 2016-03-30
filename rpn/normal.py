@@ -5,7 +5,7 @@ from rpn.functions import add, subtract, multiply, divide
 
 class NormalEvaluator(AbstractEvaluator):
     """
-    Provides the standard set of operators for 
+    Provides the standard set of operators for
     reverse polish notation.
     """
     operators = {
