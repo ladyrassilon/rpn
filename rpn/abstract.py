@@ -4,7 +4,7 @@ import re
 
 from decimal import Decimal, InvalidOperation
 
-from .exceptions import (BadExpressionError, UnacceptableToken,
+from .exceptions import (UnacceptableToken,
                          TooShortBadExpression,
                          MathDomainError,
                          DivideByZeroError,
