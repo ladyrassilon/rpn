@@ -14,14 +14,17 @@ from sympy import symbols
 from sympy.core.symbol import Symbol
 from sympy.core.expr import Expr
 
-none = symbols("none")
-
 
 class AbstractEvaluator:
     operators = {}
+    none = symbols("none")
     is_number = re.compile(r"[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?")
 
     def _evaluate_tokens(self, tokens):
+        """
+        Pass in a list of tokens and process them through the specified
+        operators.
+        """
         stack = deque()
         try:
             for token in tokens:
@@ -31,7 +34,7 @@ class AbstractEvaluator:
                     stack.append(token)
             result = stack.pop()
             if isinstance(result, Expr):
-                if result == none:
+                if result == self.none:
                     return None
                 raise NoneOperatorBadExpression(
                     "{} is invalid expression".format(result))
@@ -67,7 +70,7 @@ class AbstractEvaluator:
             elif isinstance(token, Decimal):
                 processed_tokens.append(token)
             elif token is None or token == "None":
-                processed_tokens.append(none)
+                processed_tokens.append(self.none)
             elif self.is_number.match(token):
                 processed_tokens.append(Decimal(token))
             else:
