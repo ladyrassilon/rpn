@@ -4,11 +4,11 @@ import re
 
 from decimal import Decimal, InvalidOperation
 
-from .exceptions import (UnacceptableToken,
-                         TooShortBadExpression,
-                         MathDomainError,
-                         DivideByZeroError,
-                         NoneOperatorBadExpression)
+from rpn.exceptions import (UnacceptableToken,
+                            TooShortBadExpression,
+                            MathDomainError,
+                            DivideByZeroError,
+                            NoneOperatorBadExpression)
 
 from sympy import symbols
 from sympy.core.symbol import Symbol

@@ -1,5 +1,5 @@
-from .abstract import AbstractEvaluator
-from .functions import add, subtract, multiply, divide
+from rpn.abstract import AbstractEvaluator
+from rpn.functions import add, subtract, multiply, divide
 
 
 class NormalEvaluator(AbstractEvaluator):
