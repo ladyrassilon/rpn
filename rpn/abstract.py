@@ -44,14 +44,14 @@ class AbstractEvaluator:
                 raise NoneOperatorBadExpression(
                     "{} is invalid expression".format(result))
             return result
-        except TypeError as e:
-            raise NoneOperatorBadExpression(e)
-        except IndexError as e:
-            raise TooShortBadExpression(e)
-        except ValueError as e:
-            raise MathDomainError(e)
-        except (ZeroDivisionError, InvalidOperation) as e:
-            raise DivideByZeroError(e)
+        except TypeError as err:
+            raise NoneOperatorBadExpression(err)
+        except IndexError as err:
+            raise TooShortBadExpression(err)
+        except ValueError as err:
+            raise MathDomainError(err)
+        except (ZeroDivisionError, InvalidOperation) as err:
+            raise DivideByZeroError(err)
 
     def evaluate(self, expression):
         """
