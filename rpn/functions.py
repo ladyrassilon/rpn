@@ -1,3 +1,6 @@
+"""
+All the operators used by all the implemented operators in the library.
+"""
 from rpn.decorators import get_items
 
 

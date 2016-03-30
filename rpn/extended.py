@@ -1,4 +1,7 @@
 # pylint: disable=too-few-public-methods
+"""
+Evaluator with an expanded set of operations
+"""
 from rpn.abstract import AbstractEvaluator
 from rpn.functions import add, subtract, multiply, divide, if_, exists, equals,\
     greater_than, less_than, absolute, negative, sum_list, mean_list,\

@@ -1,4 +1,8 @@
 # pylint: disable=too-many-ancestors
+"""
+All the possible exceptions raised by Evaluators, some are from operators,
+some are from the evaluator itself.
+"""
 from decimal import InvalidOperation
 
 

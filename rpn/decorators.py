@@ -1,3 +1,6 @@
+"""
+Decorator functions for use by the operators to avoid code reuse.
+"""
 from rpn.exceptions import NotPositiveInteger
 
 
