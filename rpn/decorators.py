@@ -1,4 +1,4 @@
-from exceptions import NotPositiveInteger
+from .exceptions import NotPositiveInteger
 
 
 def get_items(operator_function):
