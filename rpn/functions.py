@@ -1,4 +1,4 @@
-from decorators import get_items
+from .decorators import get_items
 
 
 def add(stack):

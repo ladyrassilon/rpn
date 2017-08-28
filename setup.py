@@ -13,11 +13,14 @@ setup(
     author="Gemma Hentsch",
     author_email="contact@halfapenguin.com",
     install_requires=[
-        "sympy==1.0"
+        "sympy==1.0",
     ],
     tests_require=[
+        "sympy==1.0",
         "coverage",
         "nose",
+        "pep8",
+        "pylint",
     ],
     long_description=long_description,
     test_suite="nose.collector",
