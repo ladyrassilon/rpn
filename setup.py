@@ -21,9 +21,9 @@ setup(
     ],
     long_description=long_description,
     test_suite="nose.collector",
-    url="https://github.com/zooeysoftware/rpn",
+    url="https://github.com/ladyrassilon/rpn",
     keywords=["rpn", "math", "formula"],
-    download_url="https://github.com/zooeysoftware/rpn/releases",
+    download_url="https://github.com/ladyrassilon/rpn/releases",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3.3",
