@@ -13,7 +13,7 @@ setup(
     author="Gemma Hentsch",
     author_email="contact@halfapenguin.com",
     install_requires=[
-        "sympy"
+        "sympy==1.0"
     ],
     tests_require=[
         "coverage",
