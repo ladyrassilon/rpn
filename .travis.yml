@@ -9,9 +9,15 @@ python:
   - "pypy3"
 install:
   - pip install coveralls pep8 pylint
+matrix:
+  include:
+  - env: _COMMAND=pylint
+    python: 3.5
+    script: pylint -f parseable -d I0011,R0801 rpn tests
+  - env: _COMMAND=pylint
+    python: 3.5
+    script: pep8 rpn tests
 script:
-  - pylint -f parseable -d I0011,R0801 rpn tests
-  - pep8 rpn tests
   - coverage run setup.py test
 after_success:
     - coveralls
