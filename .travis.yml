@@ -11,10 +11,10 @@ install:
   - pip install coveralls pep8 pylint
 matrix:
   include:
-  - env: _COMMAND=pylint
+  - env: COMMAND=pylint
     python: 3.5
     script: pylint -f parseable -d I0011,R0801 rpn tests
-  - env: _COMMAND=pylint
+  - env: COMMAND=pep8
     python: 3.5
     script: pep8 rpn tests
 script:
