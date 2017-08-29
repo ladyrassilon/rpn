@@ -1,5 +1,5 @@
 [run]
-source = presser
+source = rpn
 [report]
 omit =
     */python?.?/*

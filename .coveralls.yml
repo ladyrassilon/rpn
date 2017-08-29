@@ -1,2 +1,3 @@
 service_name: travis-ci
 url: git://github.com/ladyrassilon/rpn.git
+parallel: true
