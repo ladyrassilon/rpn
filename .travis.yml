@@ -14,9 +14,11 @@ matrix:
   - env: COMMAND=pylint
     python: 3.5
     script: pylint -f parseable -d I0011,R0801 rpn tests
+    after_success: true
   - env: COMMAND=pep8
     python: 3.5
     script: pep8 rpn tests
+    after_success: true
 script:
   - coverage run setup.py test
 after_success:
