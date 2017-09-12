@@ -8,7 +8,7 @@ python:
   - "pypy"
   - "pypy3"
 install:
-  - pip install coveralls pep8 pylint nose
+  - pip install coveralls pep8 pylint nose sympy
 # matrix:
 #   include:
 #   - env: COMMAND=pylint
